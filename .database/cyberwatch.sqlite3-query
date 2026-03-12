@@ -2,8 +2,10 @@
 -- CREATE TABLE vulnerabilities (
 --     id INTEGER PRIMARY KEY AUTOINCREMENT,
 --     vul_name TEXT NOT NULL,
---     owas_rank INTEGER
+--     owasp_rank INTEGER
 -- );
+-- INSERT INTO vulnerabilities (vul_name, owasp_rank)
+-- VALUES ("Security Misconfiguration", 2), ("Software Supply Chain Failures", 3), ("Cryptographic Failures", 4), ("Injection", 5), ("Insecure Design", 6), ("Authentication Failures", 7), ("Software or Data Integrity Failures", 8), ("Security Logging & Alerting Failures", 9), ("Mishandling of Exceptional Conditions", 10);
 
 -- CREATE TABLE incidents (
 --     id INTEGER PRIMARY KEY AUTOINCREMENT,
