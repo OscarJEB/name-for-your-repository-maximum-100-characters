@@ -15,6 +15,9 @@
 --     inc_year INTEGER,
 --     FOREIGN KEY (vul_id) REFERENCES vulnerabilities(id) 
 -- );
+-- INSERT INTO incidents (vul_id, inc_name, inc_url, inc_year)
+-- VALUES (2,'Capital One','https://dl.acm.org/doi/full/10.1145/3546068',2019), (2,'NASA/Jira','https://www.packtpub.com/en-us/learning/tech-news/a-jira-misconfiguration-exposed-employees-and-project-details-of-nasa-google-yahoo-and-many-others-alleges-grofers-lead-infra-security-engineer',2024), (2,'Equifax','https://medium.com/@shadecreative23/the-equifax-breach-a-high-profile-case-in-business-continuity-failure-ad9c87b79662',2017);
+
 
 -- ### Add a column into the vulnerabilities table ###
 -- ALTER TABLE vulnerabilities
@@ -27,7 +30,7 @@
 -- ('Authentication Failures',7);
 
 
--- ### Insert incidents into the incidents table ###
+-- ### Insert incidents into the incidents table ---- DONE ###
 -- INSERT INTO incidents (vul_id, inc_name,inc_url,inc_year)
 -- VALUES (1, 'Optus','Edward KostHow Did the Optus Data Breach Happen? | UpGuard', 2025),
 -- (1,'Snowflake','https://cloudsecurityalliance.org/blog/2025/05/07/unpacking-the-2024-snowflake-data-breach',2024),
