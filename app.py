@@ -20,14 +20,20 @@ def home():
 @app.route('/incidents/<vul_id>')
 def incident_page(vul_id):
     # TASK 1: Connect to the database
-
+    with engine.connect() as connection: #might need a change
     # TASK 2: Fetch the Vulnerability Name for the heading (JOIN or separate query)
-
+        vulnamequery = text('SELECT vul_name FROM vulnerabilities WHERE id = {};'.format(vul_id))
+        vulnameresult = connection.execute(vulnamequery).fetchall()
+        print(vulnameresult)
     # TASK 3: Fetch all Incidents linked to this vul_id, return incidents list
-    
-    print(vul_id) #this is a print statement to help you understand what data is being returned
+        query = text('SELECT inc_name, inc_url, inc_year FROM incidents WHERE vul_id = {};'.format(vul_id))
+        result = connection.execute(query).fetchall()
+        print(result)
+    # print(vul_id) #this is a print statement to help you understand what data is being returned
     return render_template('incidents.html', vulnerability = vul_id)
 
-
+    # result = connection.execute(query).fetchall()
+    # for r in result:
+    #     print(r)
 
 app.run(debug=True, reloader_type='stat', port=5000)
