@@ -42,6 +42,6 @@
 -- WHERE id = 1;
 
 -- TO DO: Write a query that shows all incidents of category broken access control
-SELECT inc_name, inc_url, inc_year
-From incidents
-Where vul_id = 1;
+-- SELECT inc_name, inc_url, inc_year
+-- From incidents
+-- Where vul_id = 1;

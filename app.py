@@ -27,13 +27,17 @@ def incident_page(vul_id):
         print(vulnameresult)
     # TASK 3: Fetch all Incidents linked to this vul_id, return incidents list
         query = text('SELECT inc_name, inc_url, inc_year FROM incidents WHERE vul_id = {};'.format(vul_id))
-        result = connection.execute(query).fetchall()
+        result = connection.execute(query, {"vul_id": vul_id}).fetchall()
         print(result)
     # print(vul_id) #this is a print statement to help you understand what data is being returned
-    return render_template('incidents.html', vulnerability = vul_id)
+    return render_template('incidents.html', vulnerability = vulnameresult[0][0], vul_list = result)
 
     # result = connection.execute(query).fetchall()
     # for r in result:
     #     print(r)
+
+@app.route('/add-incident', methods = ['GET'])
+def incident_form():
+    return render_template('add-incident.html')
 
 app.run(debug=True, reloader_type='stat', port=5000)
