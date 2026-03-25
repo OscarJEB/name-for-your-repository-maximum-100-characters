@@ -7,17 +7,25 @@ Add an incident
 {% block content %}
 <form action = "/incidents" method="POST">
   <div class="mb-3">
-    <label for="vulnerability name" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <label for="exampleInputPassword1" class="form-label">OWASP ranking for matching vulnerability:</label>
+    <input type="number" class="form-control" id="">
+    <!-- ^^^vul_id^^^ -->
   </div>
   <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
+    <label for="exampleInputPassword1" class="form-label">Company that experienced the incident:</label>
+    <input type="text" class="form-control" id="">
+    <!-- ^^^inc_name^^^ -->
   </div>
-  <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">URL of article for incident:</label>
+    <input type="url" class="form-control" id="">
+    <!-- ^^^inc_url^^^ -->
   </div>
+  <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Year of incident:</label>
+      <input type="number" class="form-control" id="">
+      <!-- ^^^inc_year^^^ -->
+    </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 {% endblock %}
