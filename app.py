@@ -4,6 +4,8 @@ from sqlalchemy import create_engine, text
 app = Flask(__name__)
 
 engine = create_engine('sqlite:///.database/cyberwatch.db') #link to the cyberwatch database here
+connection = engine.connect()
+
 
 #route for index.html
 @app.route('/')
@@ -38,6 +40,25 @@ def incident_page(vul_id):
 
 @app.route('/add-incident', methods = ['GET'])
 def incident_form():
+    return render_template('add-incident.html')
+
+@app.route('/add-incident', methods=['POST'])
+def add_review():
+    owasprank = request.form['rank']
+    print(owasprank)
+    company = request.form['companyname']
+    print(company)
+    incidenturl = request.form['incidenturl']
+    print(incidenturl)
+    year = request.form['year']
+    print(year)
+
+    insert_statement = '''INSERT INTO incidents (vul_id, inc_name, inc_url, inc_year) VALUES ({}, '{}', '{}', {});
+    '''.format(owasprank, company, incidenturl, year)
+
+    connection.execute(text(insert_statement))
+    connection.commit()
+
     return render_template('add-incident.html')
 
 app.run(debug=True, reloader_type='stat', port=5000)

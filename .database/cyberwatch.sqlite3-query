@@ -45,3 +45,6 @@
 -- SELECT inc_name, inc_url, inc_year
 -- From incidents
 -- Where vul_id = 1;
+
+-- INSERT INTO incidents (vul_id, inc_name, inc_url, inc_year)
+-- VALUES (3, 'Mimecast', 'https://www.fortinet.com/resources/cyberglossary/supply-chain-attacks', 2021);

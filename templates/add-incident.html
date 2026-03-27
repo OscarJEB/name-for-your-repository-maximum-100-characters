@@ -5,25 +5,25 @@ Add an incident
 {% endblock %}
 
 {% block content %}
-<form action = "/incidents" method="POST">
+<form action = "/add-incident" method="POST">
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">OWASP ranking for matching vulnerability:</label>
-    <input type="number" class="form-control" id="">
+    <input type="number" class="form-control" id="" name="rank">
     <!-- ^^^vul_id^^^ -->
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Company that experienced the incident:</label>
-    <input type="text" class="form-control" id="">
+    <input type="text" class="form-control" id="" name="companyname">
     <!-- ^^^inc_name^^^ -->
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">URL of article for incident:</label>
-    <input type="url" class="form-control" id="">
+    <input type="url" class="form-control" id="" name="incidenturl">
     <!-- ^^^inc_url^^^ -->
   </div>
   <div class="mb-3">
       <label for="exampleInputPassword1" class="form-label">Year of incident:</label>
-      <input type="number" class="form-control" id="">
+      <input type="number" class="form-control" id="" name="year">
       <!-- ^^^inc_year^^^ -->
     </div>
   <button type="submit" class="btn btn-primary">Submit</button>
