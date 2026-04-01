@@ -32,20 +32,20 @@ def incident_page(vul_id):
         result = connection.execute(query, {"vul_id": vul_id}).fetchall()
         print(result)
     # print(vul_id) #this is a print statement to help you understand what data is being returned
-    return render_template('incidents.html', vulnerability = vulnameresult[0][0], vul_list = result)
+    return render_template('incidents.html', vulnerability = vulnameresult[0][0], vul_list = result, vul_id = vul_id)
 
     # result = connection.execute(query).fetchall()
     # for r in result:
     #     print(r)
 
-@app.route('/add-incident', methods = ['GET'])
-def incident_form():
-    return render_template('add-incident.html')
+@app.route('/add-incident/<vul_id>', methods = ['GET'])
+def incident_form(vul_id):
+    return render_template('add-incident.html', vul_id = vul_id)
 
 @app.route('/add-incident', methods=['POST'])
 def add_review():
-    owasprank = request.form['rank']
-    print(owasprank)
+    vul_id = request.form['vul_id']
+    print(vul_id)
     company = request.form['companyname']
     print(company)
     incidenturl = request.form['incidenturl']
@@ -54,11 +54,13 @@ def add_review():
     print(year)
 
     insert_statement = '''INSERT INTO incidents (vul_id, inc_name, inc_url, inc_year) VALUES ({}, '{}', '{}', {});
-    '''.format(owasprank, company, incidenturl, year)
+    '''.format(vul_id, company, incidenturl, year)
 
     connection.execute(text(insert_statement))
     connection.commit()
 
-    return render_template('add-incident.html')
+    #return render_template('add-incident.html')
+    return redirect(url_for('incident_page', vul_id = vul_id))
+
 
 app.run(debug=True, reloader_type='stat', port=5000)

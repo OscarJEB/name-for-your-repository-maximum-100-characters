@@ -4,6 +4,9 @@
 
 {% block heading %}
 {{ vulnerability }}
+<p hidden>
+    {{vul_id}}
+</p>
 {% endblock %}
 
 {% block content %}
@@ -19,7 +22,7 @@
         </div>
     </div>
     {% endfor %}
-<a href="/add-incident" class="btn btn-success">Add Incident</a>
+<a href="/add-incident/{{vul_id}}" class="btn btn-success">Add Incident</a>
 </div>
 
 {% endblock %} 
