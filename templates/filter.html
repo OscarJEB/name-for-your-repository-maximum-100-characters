@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Incident List</title>
+        <link rel='stylesheet' href='/static/css/styles.css'>
+    </head>
+    <body>
+        <h1>Filtered Incidents</h1>
+        <img src='/static/images/movie_banner.png' height='70'>
+        <ul>
+            {% for movie in movies %}
+                <li><span class="title">{{ movie[1] }}</span> ({{ movie[2] }}) - <span class=score>{{ movie[5] }}/10</span></li>
+            {% endfor %}
+        </ul>
+    </body>
+    <br><br/>
+    <a href="/" class="btn btn-success">Return Home</a>
+</html>

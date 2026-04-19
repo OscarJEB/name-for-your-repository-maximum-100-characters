@@ -62,5 +62,28 @@ def add_review():
     #return render_template('add-incident.html')
     return redirect(url_for('incident_page', vul_id = vul_id))
 
+@app.route('/search')
+def search():
+    return render_template('search.html')
+
+@app.route('/filter', methods=['GET'])
+def filter_incidents():
+    vulnerability = request.args.get('vulnerability', )
+    year = request.args.get('year', )
+    limit = request.args.get('limit', )
+
+    conditions = []
+    if vulnerability:
+        conditions.append("vulnerability={}".format(vulnerability))
+    if year:
+        conditions.append('year>={}'.format(year))
+
+    condition_str = ' AND '.join(conditions)
+    condition_str = condition_str + " LIMIT '{}'".format(limit)
+
+    query = text('SELECT * FROM reviews WHERE {};'.format(condition_str, limit))
+    result = connection.execute(query).fetchall()
+
+    return render_template('filter.html', incidents=result)
 
 app.run(debug=True, reloader_type='stat', port=5000)

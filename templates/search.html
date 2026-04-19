@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Search Incidents</title>
+        <link rel='stylesheet' href='/static/css/styles.css'>
+    </head>
+    <body>
+        <h1>Filter Movies</h1>
+        <img src='/static/images/movie_banner.png' height='70'>
+        <form action='/filter' method='GET'>
+            <label for='vulnerability'>Vulnerabilty:</label>
+            <select id='vul_id' name='vul_id'>
+                <option value=''>Any</option>
+                <option value=1>Broken access control</option>
+                <option value=2>Security Misconfiguration</option>
+                <option value=3>Drama</option>
+            </select>
+            <br><br>
+
+            <label for='Year'>Minimum Year:</label>
+            <input type='number' id='score' name='score' min='2017' max='2024'>
+            <br><br>
+
+            <label for='limit'>No. of results:</label>
+            <input type='number' id='limit' name='limit' min='1' max='9'>
+            <br><br>
+
+            <input type='submit' value='Filter Incidents'>
+        </form>
+    </body>
+</html>
