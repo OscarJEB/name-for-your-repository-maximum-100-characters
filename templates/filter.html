@@ -8,8 +8,15 @@
         <h1>Filtered Incidents</h1>
         <img src='/static/images/movie_banner.png' height='70'>
         <ul>
-            {% for movie in movies %}
-                <li><span class="title">{{ movie[1] }}</span> ({{ movie[2] }}) - <span class=score>{{ movie[5] }}/10</span></li>
+            {% for incident in incidents %}
+                <div class="col-12 col-md-12 mb-3">
+                    <div class="card p-3">
+                        <!-- <h5>Vulnerability: {{ incident.vul_id }}</h5> <!- actual vulnerability here not just vul_id -->
+                        <h5>Incident: {{ incident.inc_name }}</h5>
+                        <p>{{ incident.inc_year }}</p>
+                        <p><a>{{ incident.inc_url }}</a></p> <!-- Clickable link here!-->
+                    </div>
+                </div>
             {% endfor %}
         </ul>
     </body>

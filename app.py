@@ -68,20 +68,20 @@ def search():
 
 @app.route('/filter', methods=['GET'])
 def filter_incidents():
-    vulnerability = request.args.get('vulnerability', )
-    year = request.args.get('year', )
-    limit = request.args.get('limit', )
+    vulnerability = request.args.get('vul_id', '')
+    year = request.args.get('year', '')
+    limit = request.args.get('limit', '')
 
     conditions = []
     if vulnerability:
-        conditions.append("vulnerability={}".format(vulnerability))
+        conditions.append("vul_id='{}'".format(vulnerability))
     if year:
-        conditions.append('year>={}'.format(year))
+        conditions.append('inc_year>={}'.format(year))
 
     condition_str = ' AND '.join(conditions)
     condition_str = condition_str + " LIMIT '{}'".format(limit)
 
-    query = text('SELECT * FROM reviews WHERE {};'.format(condition_str, limit))
+    query = text('SELECT * FROM incidents WHERE {};'.format(condition_str))
     result = connection.execute(query).fetchall()
 
     return render_template('filter.html', incidents=result)

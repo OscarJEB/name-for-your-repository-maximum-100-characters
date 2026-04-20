@@ -1,10 +1,7 @@
 {% extends 'base.html' %}
 
-<!-- update the heading to be OWASP Vulnerabilities -->
-
-
-<!-- Use a for loop to display the OWASP ranks in a table. -->
 {% block content %}
+<a href="/search" class="btn btn-primary btn-lg">Filter Incidents</a>
 
 <div class="row">
     {% for v in vulnerabilities %}

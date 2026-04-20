@@ -18,7 +18,7 @@
         <div class="card p-3">
             <h5>Incident: {{ v.inc_name }}</h5>
             <p>{{ v.inc_year }}</p>
-            <p>{{ v.inc_url }}</p>
+            <p><a>{{ v.inc_url }}</a></p> <!-- Clickable link here!-->
         </div>
     </div>
     {% endfor %}
@@ -27,4 +27,3 @@
 <br><br/>
 <a href="/" class="btn btn-success">Return Home</a>
 {% endblock %} 
-<!-- Add the button for adding a new incident -->
