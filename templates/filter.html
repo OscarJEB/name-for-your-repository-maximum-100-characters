@@ -1,25 +1,20 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Incident List</title>
-        <link rel='stylesheet' href='/static/css/styles.css'>
-    </head>
-    <body>
-        <h1>Filtered Incidents</h1>
-        <img src='/static/images/movie_banner.png' height='70'>
+{% extends 'base.html' %}
+    {% block heading %}
+    Results
+    {% endblock %}
+
+    {% block content %}
         <ul>
             {% for incident in incidents %}
                 <div class="col-12 col-md-12 mb-3">
                     <div class="card p-3">
                         <!-- <h5>Vulnerability: {{ incident.vul_id }}</h5> <!- actual vulnerability here not just vul_id -->
-                        <h5>Incident: {{ incident.inc_name }}</h5>
+                        <h1>{{ incident.inc_name }} {{incident.vul_name}} Incident</h1>
                         <p>{{ incident.inc_year }}</p>
-                        <p><a>{{ incident.inc_url }}</a></p> <!-- Clickable link here!-->
+                        <p><a href="{{ incident.inc_url }}" target="_blank" rel="noopener noreferrer">{{ incident.inc_url }}</a></p> <!-- Clickable link here!-->
                     </div>
                 </div>
             {% endfor %}
         </ul>
-    </body>
-    <br><br/>
     <a href="/" class="btn btn-success">Return Home</a>
-</html>
+     {% endblock %}

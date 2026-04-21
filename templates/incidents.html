@@ -16,9 +16,9 @@
     {% for v in vul_list %}
     <div class="col-12 col-md-12 mb-3">
         <div class="card p-3">
-            <h5>Incident: {{ v.inc_name }}</h5>
+            <h5>{{ v.inc_name }} Incident</h5>
             <p>{{ v.inc_year }}</p>
-            <p><a>{{ v.inc_url }}</a></p> <!-- Clickable link here!-->
+            <p><a href="{{ v.inc_url }}" target="_blank" rel="noopener noreferrer">{{ v.inc_url }}</a></p> <!-- Clickable link here!-->
         </div>
     </div>
     {% endfor %}
