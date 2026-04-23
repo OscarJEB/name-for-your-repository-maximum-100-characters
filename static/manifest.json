@@ -1,6 +1,6 @@
 {
-    "name": "My Progressive Web App",
-    "short_name": "My PWA",
+    "name": "Cyberwatch",
+    "short_name": "CW",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#ffffff",
