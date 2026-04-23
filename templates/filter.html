@@ -4,6 +4,7 @@
     {% endblock %}
 
     {% block content %}
+    <main role="main">
         <ul>
             {% for incident in incidents %}
                 <div class="col-12 col-md-12 mb-3">
@@ -16,5 +17,8 @@
                 </div>
             {% endfor %}
         </ul>
+    </main>
+    <nav role="navigation">
     <a href="/" class="btn btn-success">Return Home</a>
+    </nav>
      {% endblock %}

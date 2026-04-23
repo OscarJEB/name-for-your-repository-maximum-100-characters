@@ -11,7 +11,7 @@
 
 {% block content %}
 <!-- Use a for loop to display the incidents that match the vulnerability. -->
-
+<main role="main">
 <div class="row">
     {% for v in vul_list %}
     <div class="col-12 col-md-12 mb-3">
@@ -25,5 +25,8 @@
 <a href="/add-incident/{{vul_id}}" class="btn btn-success">Add Incident</a>
 </div>
 <br><br/>
+</main>
+<nav role="navigation">
 <a href="/" class="btn btn-success">Return Home</a>
+</nav>
 {% endblock %} 

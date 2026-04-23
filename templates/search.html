@@ -4,6 +4,7 @@
     {% endblock %}
 
     {% block content %}
+    <main role="main">
     <form action='/filter' method='GET'>
         <label for='vulnerability'>Vulnerabilty:</label>
         <select id='vul_id' name='vul_id'>
@@ -26,6 +27,8 @@
         <input type='submit' value='Filter Incidents'>
         <br><br>
     </form>
-
+    </main>
+    <nav role="navigation">
     <a href="/" class="btn btn-success">Return Home</a>
+    </nav>
     {% endblock %}

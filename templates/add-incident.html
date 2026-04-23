@@ -5,6 +5,7 @@ Add an incident
 {% endblock %}
 
 {% block content %}
+<main role="main">
 <form action = "/add-incident" method="POST">
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">OWASP ranking for matching vulnerability:</label>
@@ -29,5 +30,8 @@ Add an incident
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 <br><br/>
+</main>
+<nav role="navigation">
 <a href="/" class="btn btn-success">Return Home</a>
+</nav>
 {% endblock %}

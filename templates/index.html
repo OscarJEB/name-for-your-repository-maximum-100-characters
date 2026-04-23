@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<nav role="navigation">
 <a href="/search" class="btn btn-primary btn-lg">Find Incidents</a>
-
+</nav>
+<main role="main">
 <div class="row">
     {% for v in vulnerabilities %}
     <div class="col-12 col-md-12 mb-3">
@@ -15,3 +17,4 @@
     {% endfor %}
 </div>
 {% endblock %}
+</main>

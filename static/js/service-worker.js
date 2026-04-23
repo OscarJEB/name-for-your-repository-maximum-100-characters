@@ -1,3 +1,5 @@
+CACHE_NAME = "Cyberwatch";
+
 // Fetch event: Serve resources from cache or network
 self.addEventListener('fetch', event => {
     event.respondWith(
